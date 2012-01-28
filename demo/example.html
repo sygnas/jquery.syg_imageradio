@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<script language="JavaScript" type="text/javascript" src="lib/jquery-1.4.2.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="jquery.syg_imageradio.1.0.js"></script>
+	
+</head>
+<!-- //////////////////////// -->
+<body>
+
+
+<div id="appeal">
+	
+	<form action="" method="post">
+		<input type="radio" name="q0" id="btn-aaa" value="A" />
+		<label for="btn-aaa">aaa<img src="img/btn_a.png" width="100" height="100" /></label>
+		
+		<input type="radio" name="q0" id="btn-bbb" value="B" />
+		<label for="btn-bbb">bbb</label>
+	
+		<p><strong>ラジオボタン</strong></p>
+		<input type="radio" name="q1" id="btn-A" value="A" />
+		<label for="btn-A"><img src="img/btn_a.png" width="100" height="100" class="radioGroup1" /></label>
+		
+		<input type="radio" name="q1" id="btn-B" value="B" />
+		<label for="btn-B"><img src="img/btn_b.png" width="100" height="100" class="radioGroup1" /></label>
+		
+		<input type="radio" name="q1" id="btn-C" value="C" checked="checked" />
+		<label for="btn-C"><img src="img/btn_c.png" width="100" height="100" class="radioGroup1" /></label>
+
+		<br />
+		<p><strong>外部からフォームを操作した場合は反応しません。</strong></p>
+		<p><a href="#" id="test-A">[A]</a> / <a href="#" id="test-B">[B]</a> / <a href="#" id="test-C">[C]</a></p>
+
+		<!-- ラジオボタンの設定 -->
+		<script language="JavaScript" type="text/javascript"><!--
+			$.sygImageRadio( '.radioGroup1' );
+			
+			// 外部からのテスト
+			$('#test-A').click( function(){ $('#btn-A').attr('checked','checked'); return false; } );
+			$('#test-B').click( function(){ $('#btn-B').attr('checked','checked'); return false; } );
+			$('#test-C').click( function(){ $('#btn-C').attr('checked','checked'); return false; } );
+		// --></script>
+
+		<hr>
+	
+		<p><strong>チェックボックス</strong></p>
+		<input type="checkbox" name="q2" id="btn-0" value="0" />
+		<label for="btn-0"><img src="img/btn_0.png" width="100" height="100" class="checkGroup1" /></label>
+		
+		<input type="checkbox" name="q2" id="btn-1" value="1" checked="checked" />
+		<label for="btn-1"><img src="img/btn_1.png" width="100" height="100" class="checkGroup1" /></label>
+		
+		<input type="checkbox" name="q2" id="btn-2" value="2" />
+		<label for="btn-2"><img src="img/btn_2.png" width="100" height="100" class="checkGroup1" /></label>
+
+		<br />
+		<p><strong>外部からフォームを操作した場合は反応しません。</strong></p>
+		<p><a href="#" id="on-0">[0 on]</a> / <a href="#" id="on-1">[1 on]</a> / <a href="#" id="on-2">[2 on]</a></p>
+		<p><a href="#" id="off-0">[0 off]</a> / <a href="#" id="off-1">[1 off]</a> / <a href="#" id="off-2">[2 off]</a></p>
+		
+		<!-- ラジオボタンの設定 -->
+		<script language="JavaScript" type="text/javascript"><!--
+			$.sygImageRadio( '.checkGroup1' );
+
+			// 外部からのテスト
+			$('#on-0').click( function(){ $('#btn-0').attr('checked','checked'); return false; } );
+			$('#on-1').click( function(){ $('#btn-1').attr('checked','checked'); return false; } );
+			$('#on-2').click( function(){ $('#btn-2').attr('checked','checked'); return false; } );
+
+			$('#off-0').click( function(){ $('#btn-0').attr('checked',''); return false; } );
+			$('#off-1').click( function(){ $('#btn-1').attr('checked',''); return false; } );
+			$('#off-2').click( function(){ $('#btn-2').attr('checked',''); return false; } );
+		// --></script>
+
+	</form>
+</div>
+
+
+
+</body>
+</html>
+
