@@ -1,6 +1,6 @@
 /***************************
  * jQuery Image Radiobutton and Checkbox
- * version 1.0	
+ * version 1.1	
  * 
  * Hiroshi Fukuda <dada@sygnas.jp>
  * http://sygnas.jp/
@@ -69,47 +69,43 @@
 			}
 			
 			/*************************
-			 * クリック
+			 * 状態が変更
 			 */
-			$(target).click(
-				(
+			formItem.change(
+				( 
 					function( target, imgsrc, imgsrc_over, imgsrc_select, formItem ){
 						return function( e ){
-							
-							switch( mode ){
-							case "radio":
-								
-								if( active == target ) return;
-							
-								// 現在選択状態なものを開放
-								if( active ){
-									active.src = active.imgsrc;
-								}
-								// 選択状態にする
-								active = target;
-								target.src = imgsrc_select;
-								
-								break;
-								
-							case "checkbox":
-								
-								if( formItem.is(":checked") ){
-									target.src = imgsrc;
-								}else{
-									target.src = imgsrc_select;
-								}
-								break;
-							}
-							
-							// IE対策
-							if( isIE ){
-								formItem.focus();
-								formItem.click();
-							}
+							changeStatus( target, imgsrc, imgsrc_over, imgsrc_select, formItem );
 						}
-					}
+					} 
 				)( target, target.imgsrc, target.imgsrc_over, target.imgsrc_select, formItem )
 			);
+
+			/*************************
+			 * 状態に合わせて画像差し換え
+			 */
+			function changeStatus( target, imgsrc, imgsrc_over, imgsrc_select, formItem ){
+
+				switch( mode ){
+				case "radio":
+					// 現在選択状態なものを開放
+					if( active ){
+						active.src = active.imgsrc;
+					}
+					// 選択状態にする
+					active = target;
+					target.src = imgsrc_select;
+					break;
+					
+				case "checkbox":
+					if( formItem.is(":checked") ){
+						target.src = imgsrc_select;
+					}else{
+						target.src = imgsrc;
+					}
+					break;
+				}
+			}
 			
 			/*************************
 			 * ロールオーバー
@@ -135,6 +131,26 @@
 					}
 				)( target, target.imgsrc, target.imgsrc_over, target.imgsrc_select, formItem )
 			);
+			
+			/*************************
+			 * IEのみ画像クリックに対応させる
+			 */
+			if( isIE ){
+				$(target).click(
+					(
+						function( target, imgsrc, imgsrc_over, imgsrc_select, formItem ){
+							return function( e ){
+								formItem.focus();
+								formItem.click();
+								formItem.blur();
+								formItem.focus();
+								changeStatus( target, imgsrc, imgsrc_over, imgsrc_select, formItem );
+							}
+						}
+					)( target, target.imgsrc, target.imgsrc_over, target.imgsrc_select, formItem )
+				);
+			}
+			
 		}
 		
 		/***********************
