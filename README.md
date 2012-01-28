@@ -10,8 +10,11 @@ jQuery VERSION
 version 1.4.2
 
 2012.01.29 ver1.1  
+
 * radioやcheckboxを直接クリックした時に対応。
+
 2012.01.28 ver1.0  
+
 * とりあえず作成
 
 ##SYNOPSIS
