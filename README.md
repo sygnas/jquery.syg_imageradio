@@ -6,10 +6,10 @@ jQuery.sygImageRadio
 ##VERSION
 version 1.0
 
-jQuery VERSION
+jQuery VERSION  
 version 1.4.2
 
-2012.01.28 ver1.0
+2012.01.28 ver1.0  
 	とりあえず作成
 
 
@@ -17,14 +17,14 @@ version 1.4.2
 	
 ###HTML
 ``` html
-*<!-- radio -->*
+<!-- radio -->
 <input type="radio" name="q1" id="btn-A" value="A" />
 <label for="btn-A"><img src="img/btn_a.png" class="radioGroup1" /></label>
 
 <input type="radio" name="q1" id="btn-B" value="B" checked="checked" />
 <label for="btn-B"><img src="img/btn_b.png" class="radioGroup1" /></label>
 
-*<!-- checkbox -->*
+<!-- checkbox -->
 <input type="checkbox" name="q2" id="btn-0" value="0" />
 <label for="btn-0"><img src="img/btn_0.png" class="checkGroup1" /></label>
 
@@ -41,13 +41,21 @@ $.sygImageRadio( '.checkGroup1' );
 ##DESCRIPTION
 フォームのラジオボタン、チェックボックスのチェック状態で画像を変更するプラグインです。
 
-ロールオーバー時の画像はファイル名末尾に「-over」、
+``` html
+<input type="radio" id="hoge" />
+<label for="hoge"><img src="～" class="radioGroup"></label>
+```
+
+というHTMLを用意し、画像のクラスでグルーピングを行います。  
+type="radio"と"checkbox"の判定は自動で行います。
+
+ロールオーバー時の画像はファイル名末尾に「-over」、  
 セレクト状態の画像は「-select」を付けてください。
 
 ##METHOD
 
 ##AUTHOR
-Hiroshi Fukuda <dada@sygnas.jp>
+Hiroshi Fukuda <dada@sygnas.jp>  
 http://sygnas.jp/
 
 ##LICENSE
