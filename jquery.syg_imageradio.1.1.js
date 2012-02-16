@@ -51,7 +51,7 @@
 			var img_over = new Image();
 			img_over.src = target.imgsrc_over;
 			var img_select = new Image();
-			img_select = target.imgsrc_select;
+			img_select.src = target.imgsrc_select;
 			
 			// ボタン格納
 			buttons.push( target );
